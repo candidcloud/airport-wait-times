@@ -8,7 +8,7 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0263e0">
     
-    <link rel="apple-touch-icon" href="https://placehold.co/192x192/0263e0/ffffff.png?text=✈️">
+    <link rel="apple-touch-icon" href="./plane72x72.png">
 
     <style>
         :root {
@@ -185,6 +185,9 @@
                 return;
             }
 
+            // Save the successful search to the phone's memory
+            localStorage.setItem('savedAirportCode', code);
+
             // Render the data for the specific airport
             const airportData = database[code];
             airportData.forEach(checkpoint => {
@@ -250,6 +253,16 @@
                 });
         });
     }
+
+    // 4. Auto-load the last searched airport when the app opens
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedCode = localStorage.getItem('savedAirportCode');
+        if (savedCode) {
+            document.getElementById('airportCode').value = savedCode;
+            // Add a tiny delay so the UI can render before the fetch begins
+            setTimeout(lookupWaitTimes, 100); 
+        }
+    });
 </script>
 
 </body>

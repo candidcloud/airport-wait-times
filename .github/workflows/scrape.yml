@@ -33,13 +33,27 @@ jobs:
 
       - name: Commit and Push changes
         run: |
-          # Set up a generic bot identity for the commit history
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Stage the newly generated data file
           git add data.json
           
-          # Only commit and push if the data actually changed (prevents empty spam commits)
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update wait times"
-          git push
+          # Exit silently if the data hasn't actually changed
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          # Check the name of the author of the very last commit
+          LAST_AUTHOR=$(git log -1 --pretty=format:'%an')
+
+          if [ "$LAST_AUTHOR" = "github-actions[bot]" ]; then
+            echo "Bot made the last commit. Amending..."
+            git commit --amend --no-edit
+            # Force push is required because amending alters Git history
+            git push --force
+          else
+            echo "Human made the last commit. Creating a new one..."
+            git commit -m "Update wait times"
+            git push
+          fi

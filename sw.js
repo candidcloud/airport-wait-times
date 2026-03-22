@@ -1,9 +1,9 @@
-const CACHE_NAME = 'wait-times-cache-v2';
+const CACHE_NAME = 'wait-times-cache-v3'; 
+
 const ASSETS_TO_CACHE = [
   './index.html',
   './manifest.json',
-  'https://placehold.co/192x192/0263e0/ffffff.png?text=✈️',
-  'https://placehold.co/512x512/0263e0/ffffff.png?text=✈️'
+  './plane72x72.png'
 ];
 
 self.addEventListener('install', (event) => {
