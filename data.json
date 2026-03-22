@@ -1,5 +1,5 @@
 {
-    "LAST_UPDATED": "2026-03-22T18:15:39.627888",
+    "LAST_UPDATED": "2026-03-23T01:06:01.996723",
     "PHX": [
         {
             "name": "T3 General",
@@ -7,15 +7,15 @@
         },
         {
             "name": "T4 Checkpoint A General",
-            "waitMinutes": 19
+            "waitMinutes": 14
         },
         {
             "name": "T4 Checkpoint B General",
-            "waitMinutes": 16
+            "waitMinutes": 9
         },
         {
             "name": "T4 Checkpoint C General",
-            "waitMinutes": 25
+            "waitMinutes": 12
         },
         {
             "name": "T4 Checkpoint D General",
@@ -45,41 +45,32 @@
     "IAH": [
         {
             "name": "All Terminals",
-            "waitMinutes": "116"
-        }
-    ],
-    "LGA": [
-        {
-            "name": "All Terminals",
-            "waitMinutes": "10"
+            "waitMinutes": "188"
         },
         {
             "name": "A",
-            "waitMinutes": "4"
-        },
-        {
-            "name": "B",
-            "waitMinutes": "17"
+            "waitMinutes": "144"
         },
         {
             "name": "C",
-            "waitMinutes": "10"
+            "waitMinutes": "221"
+        },
+        {
+            "name": "E",
+            "waitMinutes": "243"
         }
     ],
+    "LGA": [],
     "ATL": [
         {
             "name": "All Terminals",
-            "waitMinutes": "176"
-        },
-        {
-            "name": "Domestic",
-            "waitMinutes": "176"
+            "waitMinutes": "116"
         }
     ],
     "MIA": [
         {
             "name": "All Terminals",
-            "waitMinutes": "7"
+            "waitMinutes": "6"
         },
         {
             "name": "Checkpoint 4 Priority",
