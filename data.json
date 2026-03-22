@@ -1,5 +1,5 @@
 {
-    "LAST_UPDATED": "2026-03-22T21:46:51.827230",
+    "LAST_UPDATED": "2026-03-22T18:15:39.627888",
     "PHX": [
         {
             "name": "T3 General",
@@ -7,25 +7,83 @@
         },
         {
             "name": "T4 Checkpoint A General",
-            "waitMinutes": 26
+            "waitMinutes": 19
         },
         {
             "name": "T4 Checkpoint B General",
-            "waitMinutes": 15
+            "waitMinutes": 16
         },
         {
             "name": "T4 Checkpoint C General",
-            "waitMinutes": 19
+            "waitMinutes": 25
         },
         {
             "name": "T4 Checkpoint D General",
             "waitMinutes": 7
         }
     ],
-    "LAX": [],
-    "IAD": [],
-    "IAH": [],
-    "LGA": [],
-    "ATL": [],
-    "MIA": []
+    "LAX": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "4"
+        },
+        {
+            "name": "Tom Bradley General",
+            "waitMinutes": "4"
+        },
+        {
+            "name": "Tom Bradley TSA PreCheck",
+            "waitMinutes": "3"
+        }
+    ],
+    "IAD": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "5"
+        }
+    ],
+    "IAH": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "116"
+        }
+    ],
+    "LGA": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "10"
+        },
+        {
+            "name": "A",
+            "waitMinutes": "4"
+        },
+        {
+            "name": "B",
+            "waitMinutes": "17"
+        },
+        {
+            "name": "C",
+            "waitMinutes": "10"
+        }
+    ],
+    "ATL": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "176"
+        },
+        {
+            "name": "Domestic",
+            "waitMinutes": "176"
+        }
+    ],
+    "MIA": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "7"
+        },
+        {
+            "name": "Checkpoint 4 Priority",
+            "waitMinutes": "0"
+        }
+    ]
 }

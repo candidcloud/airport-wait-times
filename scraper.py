@@ -69,37 +69,45 @@ class QsensorScraper(AirportScraper):
 
     def scrape(self):
         try:
-            response = requests.get(self.url, headers=self.headers, timeout=10)
+            import cloudscraper
+            from bs4 import BeautifulSoup
+            import re
+            
+            # Use cloudscraper instead of requests to bypass anti-bot security (like Cloudflare)
+            scraper = cloudscraper.create_scraper()
+            response = scraper.get(self.url, timeout=15)
             
             if response.status_code == 200:
-                from bs4 import BeautifulSoup
-                import re
-                
                 soup = BeautifulSoup(response.text, 'html.parser')
+                
+                # 1. Strip away ALL HTML tags and replace them with spaces for clean parsing
                 page_text = soup.get_text(separator=' ')
                 
                 wait_times = []
                 
-                # Our battle-tested Regex
+                # 2. Search the raw text for the specific data pattern
+                # This regex looks for "Terminal [Name] [Optional Queues] [Number] mins wait"
                 pattern = r'Terminal\s+(.*?)(?:\s+Queues:\s*\d+)?\s+(\d+)\s*mins?\s*wait'
                 
                 for match in re.finditer(pattern, page_text, re.IGNORECASE):
+                    # Extract the raw terminal name and the wait time minutes
                     raw_name = match.group(1).strip()
                     minutes = match.group(2).strip()
                     
-                    # Clean up the "All Terminals" over-catch
+                    # 3. Clean up the "All Terminals" over-catch caused by greedy regex
                     if "All Terminals" in raw_name:
                         name = "All Terminals"
                     else:
                         name = raw_name
                         
-                    # Safety Net: Filter out rogue paragraphs
+                    # 4. Safety Net: Filter out rogue paragraphs (if a name is too long, it's not a terminal)
                     if len(name) < 40:
                         wait_times.append({
                             "name": name,
                             "waitMinutes": minutes
                         })
                 
+                # 5. Remove any accidental duplicates before returning
                 unique_times = {v['name']:v for v in wait_times}.values()
                 return list(unique_times)
             else:
