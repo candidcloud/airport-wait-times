@@ -1,17 +1,17 @@
 {
-    "LAST_UPDATED": "2026-03-22T16:51:29.730379",
+    "LAST_UPDATED": "2026-03-22T13:40:35.085775",
     "PHX": [
         {
             "name": "T3 General",
-            "waitMinutes": 11
+            "waitMinutes": 13
         },
         {
             "name": "T4 Checkpoint A General",
-            "waitMinutes": 19
+            "waitMinutes": 15
         },
         {
             "name": "T4 Checkpoint B General",
-            "waitMinutes": 11
+            "waitMinutes": 12
         },
         {
             "name": "T4 Checkpoint C General",
@@ -20,6 +20,26 @@
         {
             "name": "T4 Checkpoint D General",
             "waitMinutes": 7
+        }
+    ],
+    "LAX": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "5"
+        },
+        {
+            "name": "Tom Bradley General",
+            "waitMinutes": "6"
+        },
+        {
+            "name": "Tom Bradley TSA PreCheck",
+            "waitMinutes": "4"
+        }
+    ],
+    "IAD": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "116"
         }
     ]
 }
