@@ -25,8 +25,7 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        # Since we use the direct API now, we only need the basic requests library
-        run: pip install requests
+        run: pip install -r requirements.txt
 
       - name: Run Scraper
         run: python scraper.py
@@ -44,16 +43,15 @@ jobs:
             exit 0
           fi
 
-          # Check the name of the author of the very last commit
+          # Check the exact name of the author of the very last commit
           LAST_AUTHOR=$(git log -1 --pretty=format:'%an')
 
           if [ "$LAST_AUTHOR" = "github-actions[bot]" ]; then
             echo "Bot made the last commit. Amending..."
-            git commit --amend --no-edit
-            # Force push is required because amending alters Git history
+            git commit --amend -m "Auto-update live wait times"
             git push --force
           else
             echo "Human made the last commit. Creating a new one..."
-            git commit -m "Update wait times"
+            git commit -m "Auto-update live wait times"
             git push
           fi
