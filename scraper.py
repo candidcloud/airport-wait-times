@@ -57,62 +57,19 @@ class PHX_Scraper(AirportScraper):
             print(f"Error scraping PHX: {e}")
             return []
         
-class LAX_Scraper(AirportScraper):
-    def __init__(self):
-        super().__init__("LAX")
+class QsensorScraper(AirportScraper):
+    """
+    A dynamic scraper that can handle ANY airport tracked by Qsensor.
+    Just pass in the airport code and their specific URL slug.
+    """
+    def __init__(self, code, url_slug):
+        super().__init__(code)
+        # Dynamically build the URL based on the slug provided
+        self.url = f'https://qsensor.co/airports/{url_slug}-tsa-wait-times/'
 
     def scrape(self):
         try:
-            url = 'https://qsensor.co/airports/los-angeles-international-airport-tsa-wait-times/'
-            response = requests.get(url, headers=self.headers, timeout=10)
-            
-            if response.status_code == 200:
-                from bs4 import BeautifulSoup
-                import re
-                
-                soup = BeautifulSoup(response.text, 'html.parser')
-                page_text = soup.get_text(separator=' ')
-                
-                wait_times = []
-                
-                pattern = r'Terminal\s+(.*?)(?:\s+Queues:\s*\d+)?\s+(\d+)\s*mins?\s*wait'
-                
-                for match in re.finditer(pattern, page_text, re.IGNORECASE):
-                    raw_name = match.group(1).strip()
-                    minutes = match.group(2).strip()
-                    
-                    # 1. Clean up the "All Terminals" over-catch
-                    if "All Terminals" in raw_name:
-                        name = "All Terminals"
-                    else:
-                        name = raw_name
-                        
-                    # 2. Safety Net: If the name is longer than 40 chars, it's a paragraph, not a terminal!
-                    if len(name) < 40:
-                        wait_times.append({
-                            "name": name,
-                            "waitMinutes": minutes
-                        })
-                
-                unique_times = {v['name']:v for v in wait_times}.values()
-                return list(unique_times)
-            else:
-                print(f"LAX returned status code: {response.status_code}")
-                return []
-                
-        except Exception as e:
-            print(f"Error scraping LAX: {e}")
-            return []
-        
-class IAD_Scraper(AirportScraper):
-    def __init__(self):
-        super().__init__("IAD")
-
-    def scrape(self):
-        try:
-            # Reusing our aggregator strategy for Dulles
-            url = 'https://qsensor.co/airports/washington-dulles-international-airport-tsa-wait-times/'
-            response = requests.get(url, headers=self.headers, timeout=10)
+            response = requests.get(self.url, headers=self.headers, timeout=10)
             
             if response.status_code == 200:
                 from bs4 import BeautifulSoup
@@ -130,11 +87,13 @@ class IAD_Scraper(AirportScraper):
                     raw_name = match.group(1).strip()
                     minutes = match.group(2).strip()
                     
+                    # Clean up the "All Terminals" over-catch
                     if "All Terminals" in raw_name:
                         name = "All Terminals"
                     else:
                         name = raw_name
                         
+                    # Safety Net: Filter out rogue paragraphs
                     if len(name) < 40:
                         wait_times.append({
                             "name": name,
@@ -144,11 +103,11 @@ class IAD_Scraper(AirportScraper):
                 unique_times = {v['name']:v for v in wait_times}.values()
                 return list(unique_times)
             else:
-                print(f"IAD returned status code: {response.status_code}")
+                print(f"{self.code} returned status code: {response.status_code}")
                 return []
                 
         except Exception as e:
-            print(f"Error scraping IAD: {e}")
+            print(f"Error scraping {self.code}: {e}")
             return []
 
 class ScraperManager:
@@ -156,11 +115,17 @@ class ScraperManager:
     Manages the execution of all registered airport scrapers and saves the results.
     """
     def __init__(self):
-        # Register active scrapers here. Add more (e.g., ATL_Scraper()) to this list later.
         self.scrapers = [
+            # Custom direct-API scraper
             PHX_Scraper(),
-            LAX_Scraper(),
-            IAD_Scraper()
+            
+            # Dynamic aggregator scrapers
+            QsensorScraper("LAX", "los-angeles-international-airport"),
+            QsensorScraper("IAD", "washington-dulles-international-airport"),
+            QsensorScraper("IAH", "houston-george-bush-intercontinental-airport"),
+            QsensorScraper("LGA", "new-york-laguardia-airport"),
+            QsensorScraper("ATL", "hartsfield-jackson-atlanta-international-airport"),
+            QsensorScraper("MIA", "miami-international-airport")
         ]
 
     def run_all(self):

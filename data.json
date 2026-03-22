@@ -1,13 +1,13 @@
 {
-    "LAST_UPDATED": "2026-03-22T13:40:35.085775",
+    "LAST_UPDATED": "2026-03-22T14:27:15.948706",
     "PHX": [
         {
             "name": "T3 General",
-            "waitMinutes": 13
+            "waitMinutes": 12
         },
         {
             "name": "T4 Checkpoint A General",
-            "waitMinutes": 15
+            "waitMinutes": 14
         },
         {
             "name": "T4 Checkpoint B General",
@@ -15,7 +15,7 @@
         },
         {
             "name": "T4 Checkpoint C General",
-            "waitMinutes": 14
+            "waitMinutes": 12
         },
         {
             "name": "T4 Checkpoint D General",
@@ -25,21 +25,77 @@
     "LAX": [
         {
             "name": "All Terminals",
-            "waitMinutes": "5"
-        },
-        {
-            "name": "Tom Bradley General",
             "waitMinutes": "6"
         },
         {
+            "name": "Tom Bradley General",
+            "waitMinutes": "7"
+        },
+        {
             "name": "Tom Bradley TSA PreCheck",
-            "waitMinutes": "4"
+            "waitMinutes": "5"
         }
     ],
     "IAD": [
         {
             "name": "All Terminals",
-            "waitMinutes": "116"
+            "waitMinutes": "83"
+        }
+    ],
+    "IAH": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "60"
+        },
+        {
+            "name": "A",
+            "waitMinutes": "19"
+        },
+        {
+            "name": "C",
+            "waitMinutes": "100"
+        },
+        {
+            "name": "E",
+            "waitMinutes": "100"
+        }
+    ],
+    "LGA": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "13"
+        },
+        {
+            "name": "A",
+            "waitMinutes": "5"
+        },
+        {
+            "name": "B",
+            "waitMinutes": "27"
+        },
+        {
+            "name": "C",
+            "waitMinutes": "6"
+        }
+    ],
+    "ATL": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "44"
+        },
+        {
+            "name": "Domestic",
+            "waitMinutes": "44"
+        }
+    ],
+    "MIA": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "5"
+        },
+        {
+            "name": "Checkpoint 4 Priority",
+            "waitMinutes": "0"
         }
     ]
 }
