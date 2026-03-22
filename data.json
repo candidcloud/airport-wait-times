@@ -1,21 +1,21 @@
 {
-    "LAST_UPDATED": "2026-03-22T13:57:01.415924",
+    "LAST_UPDATED": "2026-03-22T14:21:13.853311",
     "PHX": [
         {
             "name": "T3 General",
-            "waitMinutes": 11
+            "waitMinutes": 12
         },
         {
             "name": "T4 Checkpoint A General",
-            "waitMinutes": 41
+            "waitMinutes": 39
         },
         {
             "name": "T4 Checkpoint B General",
-            "waitMinutes": 9
+            "waitMinutes": 15
         },
         {
             "name": "T4 Checkpoint C General",
-            "waitMinutes": 24
+            "waitMinutes": 26
         },
         {
             "name": "T4 Checkpoint D General",
