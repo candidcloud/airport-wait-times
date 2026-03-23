@@ -30,6 +30,7 @@ The scraper currently aggregates data for the following airports:
 * **BOS** - Boston Logan
 * **AUS** - Austin-Bergstrom
 * **MSY** - Louis Armstrong
+* **OSL** - Oslo Gardermoen
 
 ## 🏗️ Architecture: How it Works
 
