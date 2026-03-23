@@ -1,6 +1,7 @@
 const CACHE_NAME = 'wait-times-cache-v3'; 
 
 const ASSETS_TO_CACHE = [
+  './',
   './index.html',
   './manifest.json',
   './plane72x72.png'
