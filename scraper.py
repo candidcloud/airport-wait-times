@@ -60,12 +60,12 @@ class PHX_Scraper(AirportScraper):
 class QsensorScraper(AirportScraper):
     """
     A dynamic scraper that can handle ANY airport tracked by Qsensor.
-    Just pass in the airport code and their specific URL slug.
+    Just pass in the airport code, their specific URL slug, and an optional suffix.
     """
-    def __init__(self, code, url_slug):
+    def __init__(self, code, url_slug, suffix="-tsa-wait-times"):
         super().__init__(code)
-        # Dynamically build the URL based on the slug provided
-        self.url = f'https://qsensor.co/airports/{url_slug}-tsa-wait-times/'
+        # Dynamically build the URL based on the slug and suffix provided
+        self.url = f'https://qsensor.co/airports/{url_slug}{suffix}/'
 
     def scrape(self):
         try:
@@ -83,10 +83,12 @@ class QsensorScraper(AirportScraper):
                 # 1. Strip away ALL HTML tags and replace them with spaces for clean parsing
                 page_text = soup.get_text(separator=' ')
                 
+                # 2. Remove rogue periods and commas so the regex never trips
+                page_text = page_text.replace('.', ' ').replace(',', ' ')
+                
                 wait_times = []
                 
-                # 2. Search the raw text for the specific data pattern
-                # This regex looks for "Terminal [Name] [Optional Queues] [Number] mins wait"
+                # 3. Search the now-clean text for the specific data pattern
                 pattern = r'Terminal\s+(.*?)(?:\s+Queues:\s*\d+)?\s+(\d+)\s*mins?\s*wait'
                 
                 for match in re.finditer(pattern, page_text, re.IGNORECASE):
@@ -94,20 +96,20 @@ class QsensorScraper(AirportScraper):
                     raw_name = match.group(1).strip()
                     minutes = match.group(2).strip()
                     
-                    # 3. Clean up the "All Terminals" over-catch caused by greedy regex
+                    # 4. Clean up the "All Terminals" over-catch caused by greedy regex
                     if "All Terminals" in raw_name:
                         name = "All Terminals"
                     else:
                         name = raw_name
                         
-                    # 4. Safety Net: Filter out rogue paragraphs (if a name is too long, it's not a terminal)
+                    # 5. Safety Net: Filter out rogue paragraphs (if a name is too long, it's not a terminal)
                     if len(name) < 40:
                         wait_times.append({
                             "name": name,
                             "waitMinutes": minutes
                         })
                 
-                # 5. Remove any accidental duplicates before returning
+                # 6. Remove any accidental duplicates before returning
                 unique_times = {v['name']:v for v in wait_times}.values()
                 return list(unique_times)
             else:
@@ -133,7 +135,14 @@ class ScraperManager:
             QsensorScraper("IAH", "houston-george-bush-intercontinental-airport"),
             QsensorScraper("LGA", "new-york-laguardia-airport"),
             QsensorScraper("ATL", "hartsfield-jackson-atlanta-international-airport"),
-            QsensorScraper("MIA", "miami-international-airport")
+            QsensorScraper("MIA", "miami-international-airport"),
+            QsensorScraper("DEN", "denver-international-airport"),
+            QsensorScraper("ORD", "chicago-ohare-international-airport"),
+            QsensorScraper("CLT", "charlotte-douglas-international-airport"),
+            QsensorScraper("BOS", "boston-logan-international-airport"),
+            QsensorScraper("AUS", "austin-bergstrom-international-airport"),
+            QsensorScraper("MSY", "louis-armstrong-new-orleans-international-airport"),
+            QsensorScraper("OSL", "oslo-gardermoen-airport", "-security-wait-times")
         ]
 
     def run_all(self):
@@ -141,7 +150,7 @@ class ScraperManager:
         
         # Initialize the final dictionary with an ISO timestamp
         final_data = {
-            "LAST_UPDATED": datetime.datetime.now().isoformat()
+            "LAST_UPDATED": datetime.datetime.now(datetime.timezone.utc).isoformat()
         }
         
         # Run each scraper and append its data to the dictionary

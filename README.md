@@ -2,25 +2,34 @@
 
 **[🌍 View the Live App Here](https://candidcloud.github.io/airport-wait-times/)**
 
-A Progressive Web App (PWA) that tracks and displays live airport security wait times. 
+A Progressive Web App (PWA) that tracks and displays live airport security wait times.
 
 Instead of relying on a traditional paid server or database, this project uses a serverless **Git Scraping** architecture. A Python script runs continuously via GitHub Actions, scrapes the latest data, and commits it directly to a JSON file in this repository. The frontend PWA then fetches that static file, resulting in a completely free, fast, and highly reliable application.
 
 ## ✨ Features
+
 * **Live Data:** Security wait times updated automatically every 15 minutes.
 * **Progressive Web App:** Installable on iOS and Android home screens.
 * **Local Storage:** Automatically remembers your last searched airport.
 * **Serverless Backend:** Powered entirely by GitHub Actions and GitHub Pages.
 
 ## 📍 Supported Airports
+
 The scraper currently aggregates data for the following airports:
+
 * **PHX** - Phoenix Sky Harbor (Direct API)
 * **ATL** - Hartsfield-Jackson Atlanta
 * **IAD** - Washington Dulles
-* **IAH** - George Bush Intercontinental 
+* **IAH** - George Bush Intercontinental
 * **LAX** - Los Angeles International
 * **LGA** - LaGuardia
 * **MIA** - Miami International
+* **DEN** - Denver International
+* **ORD** - Chicago O'Hare
+* **CLT** - Charlotte Douglas
+* **BOS** - Boston Logan
+* **AUS** - Austin-Bergstrom
+* **MSY** - Louis Armstrong
 
 ## 🏗️ Architecture: How it Works
 

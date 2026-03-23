@@ -1,5 +1,5 @@
 {
-    "LAST_UPDATED": "2026-03-23T01:06:01.996723",
+    "LAST_UPDATED": "2026-03-23T01:42:15.096329+00:00",
     "PHX": [
         {
             "name": "T3 General",
@@ -7,15 +7,15 @@
         },
         {
             "name": "T4 Checkpoint A General",
-            "waitMinutes": 14
+            "waitMinutes": 21
         },
         {
             "name": "T4 Checkpoint B General",
-            "waitMinutes": 9
+            "waitMinutes": 8
         },
         {
             "name": "T4 Checkpoint C General",
-            "waitMinutes": 12
+            "waitMinutes": 11
         },
         {
             "name": "T4 Checkpoint D General",
@@ -29,27 +29,27 @@
         },
         {
             "name": "Tom Bradley General",
-            "waitMinutes": "4"
+            "waitMinutes": "6"
         },
         {
             "name": "Tom Bradley TSA PreCheck",
-            "waitMinutes": "3"
+            "waitMinutes": "2"
         }
     ],
     "IAD": [
         {
             "name": "All Terminals",
-            "waitMinutes": "5"
+            "waitMinutes": "4"
         }
     ],
     "IAH": [
         {
             "name": "All Terminals",
-            "waitMinutes": "188"
+            "waitMinutes": "134"
         },
         {
             "name": "A",
-            "waitMinutes": "144"
+            "waitMinutes": "58"
         },
         {
             "name": "C",
@@ -57,7 +57,7 @@
         },
         {
             "name": "E",
-            "waitMinutes": "243"
+            "waitMinutes": "199"
         }
     ],
     "LGA": [],
@@ -70,11 +70,84 @@
     "MIA": [
         {
             "name": "All Terminals",
-            "waitMinutes": "6"
+            "waitMinutes": "5"
+        }
+    ],
+    "DEN": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "2"
         },
         {
-            "name": "Checkpoint 4 Priority",
+            "name": "East Security",
+            "waitMinutes": "1"
+        },
+        {
+            "name": "West Security",
+            "waitMinutes": "2"
+        }
+    ],
+    "ORD": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "2"
+        },
+        {
+            "name": "2 Checkpoint 5 General",
+            "waitMinutes": "2"
+        },
+        {
+            "name": "2 Checkpoint 5 TSA Pre",
+            "waitMinutes": "2"
+        },
+        {
+            "name": "3 Checkpoint 6 General",
+            "waitMinutes": "0"
+        },
+        {
+            "name": "3 Checkpoint 7 General",
+            "waitMinutes": "4"
+        },
+        {
+            "name": "3 Checkpoint 7 TSA Pre",
+            "waitMinutes": "4"
+        },
+        {
+            "name": "3 Checkpoint 8 General",
+            "waitMinutes": "0"
+        },
+        {
+            "name": "3 Checkpoint 8 TSA Pre",
+            "waitMinutes": "0"
+        },
+        {
+            "name": "3 Checkpoint 9 General",
             "waitMinutes": "0"
         }
-    ]
+    ],
+    "CLT": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "5"
+        }
+    ],
+    "BOS": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "7"
+        }
+    ],
+    "AUS": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "14"
+        }
+    ],
+    "MSY": [
+        {
+            "name": "All Terminals",
+            "waitMinutes": "7"
+        }
+    ],
+    "OSL": []
 }
