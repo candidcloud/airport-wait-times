@@ -1,5 +1,5 @@
 {
-    "LAST_UPDATED": "2026-03-23T01:42:15.096329+00:00",
+    "LAST_UPDATED": "2026-03-23T03:51:04.216085+00:00",
     "PHX": [
         {
             "name": "T3 General",
@@ -11,7 +11,7 @@
         },
         {
             "name": "T4 Checkpoint B General",
-            "waitMinutes": 8
+            "waitMinutes": 7
         },
         {
             "name": "T4 Checkpoint C General",
@@ -25,11 +25,11 @@
     "LAX": [
         {
             "name": "All Terminals",
-            "waitMinutes": "4"
+            "waitMinutes": "3"
         },
         {
             "name": "Tom Bradley General",
-            "waitMinutes": "6"
+            "waitMinutes": "3"
         },
         {
             "name": "Tom Bradley TSA PreCheck",
@@ -70,13 +70,13 @@
     "MIA": [
         {
             "name": "All Terminals",
-            "waitMinutes": "5"
+            "waitMinutes": "3"
         }
     ],
     "DEN": [
         {
             "name": "All Terminals",
-            "waitMinutes": "2"
+            "waitMinutes": "1"
         },
         {
             "name": "East Security",
@@ -84,17 +84,17 @@
         },
         {
             "name": "West Security",
-            "waitMinutes": "2"
+            "waitMinutes": "1"
         }
     ],
     "ORD": [
         {
             "name": "All Terminals",
-            "waitMinutes": "2"
+            "waitMinutes": "3"
         },
         {
             "name": "2 Checkpoint 5 General",
-            "waitMinutes": "2"
+            "waitMinutes": "6"
         },
         {
             "name": "2 Checkpoint 5 TSA Pre",
@@ -106,19 +106,19 @@
         },
         {
             "name": "3 Checkpoint 7 General",
-            "waitMinutes": "4"
+            "waitMinutes": "6"
         },
         {
             "name": "3 Checkpoint 7 TSA Pre",
-            "waitMinutes": "4"
+            "waitMinutes": "6"
         },
         {
             "name": "3 Checkpoint 8 General",
-            "waitMinutes": "0"
+            "waitMinutes": "2"
         },
         {
             "name": "3 Checkpoint 8 TSA Pre",
-            "waitMinutes": "0"
+            "waitMinutes": "2"
         },
         {
             "name": "3 Checkpoint 9 General",
@@ -134,19 +134,19 @@
     "BOS": [
         {
             "name": "All Terminals",
-            "waitMinutes": "7"
+            "waitMinutes": "3"
         }
     ],
     "AUS": [
         {
             "name": "All Terminals",
-            "waitMinutes": "14"
+            "waitMinutes": "3"
         }
     ],
     "MSY": [
         {
             "name": "All Terminals",
-            "waitMinutes": "7"
+            "waitMinutes": "3"
         }
     ],
     "OSL": []
