@@ -1,7 +1,7 @@
 {
-    "LAST_UPDATED": "2026-03-24T03:12:45.721957+00:00",
+    "LAST_UPDATED": "2026-03-24T23:51:42.497094+00:00",
     "PHX": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
         "data": [
             {
                 "name": "T3 General",
@@ -9,15 +9,15 @@
             },
             {
                 "name": "T4 Checkpoint A General",
-                "waitMinutes": 11
+                "waitMinutes": 12
             },
             {
                 "name": "T4 Checkpoint B General",
-                "waitMinutes": 7
+                "waitMinutes": 9
             },
             {
                 "name": "T4 Checkpoint C General",
-                "waitMinutes": 9
+                "waitMinutes": 11
             },
             {
                 "name": "T4 Checkpoint D General",
@@ -26,15 +26,15 @@
         ]
     },
     "LAX": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
         "data": [
             {
                 "name": "All Terminals",
-                "waitMinutes": "6"
+                "waitMinutes": "3"
             },
             {
                 "name": "Terminal Tom Bradley General",
-                "waitMinutes": "10"
+                "waitMinutes": "4"
             },
             {
                 "name": "Terminal Tom Bradley TSA PreCheck",
@@ -43,45 +43,54 @@
         ]
     },
     "IAD": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
-        "data": []
-    },
-    "IAH": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
         "data": [
             {
                 "name": "All Terminals",
-                "waitMinutes": "155"
-            },
+                "waitMinutes": "6"
+            }
+        ]
+    },
+    "IAH": {
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
+        "data": [
             {
-                "name": "Terminal A",
-                "waitMinutes": "66"
+                "name": "All Terminals",
+                "waitMinutes": "28"
             },
             {
                 "name": "Terminal E",
-                "waitMinutes": "243"
+                "waitMinutes": "50"
             }
         ]
     },
     "LGA": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
         "data": []
     },
     "ATL": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
         "data": []
     },
     "MIA": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
         "data": [
             {
                 "name": "All Terminals",
-                "waitMinutes": "3"
+                "waitMinutes": "4"
+            },
+            {
+                "name": "Terminal Checkpoint 3 Priority",
+                "waitMinutes": "0"
+            },
+            {
+                "name": "Terminal Checkpoint 4 Priority",
+                "waitMinutes": "0"
             }
         ]
     },
     "DEN": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
         "data": [
             {
                 "name": "All Terminals",
@@ -89,7 +98,7 @@
             },
             {
                 "name": "Terminal East Security",
-                "waitMinutes": "1"
+                "waitMinutes": "2"
             },
             {
                 "name": "Terminal West Security",
@@ -98,31 +107,31 @@
         ]
     },
     "ORD": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
         "data": [
             {
                 "name": "All Terminals",
-                "waitMinutes": "3"
-            },
-            {
-                "name": "Terminal 2 Checkpoint 5 General",
                 "waitMinutes": "2"
             },
             {
+                "name": "Terminal 2 Checkpoint 5 General",
+                "waitMinutes": "4"
+            },
+            {
                 "name": "Terminal 2 Checkpoint 5 TSA Pre",
-                "waitMinutes": "0"
+                "waitMinutes": "2"
             },
             {
                 "name": "Terminal 3 Checkpoint 6 General",
-                "waitMinutes": "0"
+                "waitMinutes": "3"
             },
             {
                 "name": "Terminal 3 Checkpoint 7 General",
-                "waitMinutes": "6"
+                "waitMinutes": "3"
             },
             {
                 "name": "Terminal 3 Checkpoint 7 TSA Pre",
-                "waitMinutes": "6"
+                "waitMinutes": "3"
             },
             {
                 "name": "Terminal 3 Checkpoint 8 General",
@@ -130,7 +139,7 @@
             },
             {
                 "name": "Terminal 3 Checkpoint 8 TSA Pre",
-                "waitMinutes": "0"
+                "waitMinutes": "2"
             },
             {
                 "name": "Terminal 3 Checkpoint 9 General",
@@ -139,23 +148,43 @@
         ]
     },
     "CLT": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
-        "data": []
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "33"
+            }
+        ]
     },
     "BOS": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
-        "data": []
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "5"
+            }
+        ]
     },
     "AUS": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
-        "data": []
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "4"
+            }
+        ]
     },
     "MSY": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
-        "data": []
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "44"
+            }
+        ]
     },
     "OSL": {
-        "last_updated": "2026-03-24T03:12:45.721957+00:00",
+        "last_updated": "2026-03-24T23:51:42.497094+00:00",
         "data": []
     }
 }
