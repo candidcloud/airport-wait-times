@@ -8,7 +8,7 @@ Instead of relying on a traditional paid server or database, this project uses a
 
 ## ✨ Features
 
-* **Live Data:** Security wait times updated automatically every 15 minutes.
+* **Live Data:** Security wait times updated automatically every 10 minutes.
 * **Progressive Web App:** Installable on iOS and Android home screens.
 * **Local Storage:** Automatically remembers your last searched airport.
 * **Serverless Backend:** Powered entirely by GitHub Actions and GitHub Pages.
