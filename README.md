@@ -17,20 +17,20 @@ Instead of relying on a traditional paid server or database, this project uses a
 
 The scraper currently aggregates data for the following airports:
 
-* **PHX** - Phoenix Sky Harbor (Direct API)
 * **ATL** - Hartsfield-Jackson Atlanta
+* **AUS** - Austin-Bergstrom
+* **BOS** - Boston Logan
+* **CLT** - Charlotte Douglas
+* **DEN** - Denver International
 * **IAD** - Washington Dulles
 * **IAH** - George Bush Intercontinental
 * **LAX** - Los Angeles International
 * **LGA** - LaGuardia
 * **MIA** - Miami International
-* **DEN** - Denver International
-* **ORD** - Chicago O'Hare
-* **CLT** - Charlotte Douglas
-* **BOS** - Boston Logan
-* **AUS** - Austin-Bergstrom
 * **MSY** - Louis Armstrong
+* **ORD** - Chicago O'Hare
 * **OSL** - Oslo Gardermoen
+* **PHX** - Phoenix Sky Harbor
 
 ## 🏗️ Architecture: How it Works
 

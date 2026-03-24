@@ -138,6 +138,29 @@
             margin-top: 20px;
             display: none;
         }
+
+        .available-airports {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .airport-tag {
+            background-color: #e2e8f0;
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .airport-tag:hover {
+            background-color: #cbd5e0;
+        }
     </style>
 </head>
 <body>
@@ -146,17 +169,18 @@
     <h1>✈️ Airport Wait Times</h1>
     <div class="search-box">
         <input type="text" id="airportCode" placeholder="Enter Airport Code (e.g. PHX)" maxlength="3">
-        <button onclick="lookupWaitTimes()">Search</button>
+        <button onclick="lookupWaitTimes()">View</button>
     </div>
 
+    <div id="availableAirports" class="available-airports"></div>
+
     <div id="loader" class="loader">Fetching latest times...</div>
-    <div id="results" class="results">
-        </div>
+    <div id="results" class="results"></div>
     <div id="lastUpdated" class="timestamp"></div>
 </div>
 
 <script>
-    // 1. Function to handle the search click
+    // Handle the search functionality
     async function lookupWaitTimes() {
         const inputField = document.getElementById('airportCode');
         const code = inputField.value.trim().toUpperCase();
@@ -170,31 +194,41 @@
             return;
         }
 
-        // Clear previous results and show loader
+        // Reset UI state before fetching
         resultsDiv.innerHTML = '';
         timestampDiv.style.display = 'none';
         loader.style.display = 'block';
 
         try {
-            // Fetch the entire static database JSON file
+            // Retrieve the static JSON file
             const database = await fetchStaticData();
             loader.style.display = 'none';
 
-            if (!database || !database[code] || database[code].length === 0) {
+            // Verify the fetch request returned data
+            if (!database) {
+                resultsDiv.innerHTML = '<div class="error-msg">Could not connect to the database.</div>';
+                return;
+            }
+
+            // Access the specific airport object
+            const airportEntry = database[code];
+            
+            // Verify the airport exists and contains checkpoint data
+            if (!airportEntry || !airportEntry.data || airportEntry.data.length === 0) {
                 resultsDiv.innerHTML = `<div class="error-msg">No wait time data found for ${code}.</div>`;
                 return;
             }
 
-            // Save the successful search to the phone's memory
+            // Save the valid search code to local storage
             localStorage.setItem('savedAirportCode', code);
 
-            // Render the data for the specific airport
-            const airportData = database[code];
+            // Render the checkpoint data elements
+            const airportData = airportEntry.data;
             airportData.forEach(checkpoint => {
                 const card = document.createElement('div');
                 card.className = 'checkpoint-card';
                 
-                // Parse wait minutes as an integer to determine color
+                // Determine CSS class based on wait duration
                 const minutes = parseInt(checkpoint.waitMinutes, 10) || 0;
                 let statusClass = 'status-good';
                 if (minutes > 15) statusClass = 'status-moderate';
@@ -207,24 +241,39 @@
                 resultsDiv.appendChild(card);
             });
 
-            // Display the last updated timestamp if it exists in the JSON
+            // Display both the specific data timestamp and the global check timestamp
+            let timeText = '';
+            
+            // 1. When the data was last successfully received
+            if (airportEntry.last_updated) {
+                const dataTime = new Date(airportEntry.last_updated);
+                timeText += `<strong>Data Received:</strong> ${dataTime.toLocaleString([], {month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'})}<br>`;
+            }
+            
+            // 2. When the bot last attempted to check for updates
             if (database.LAST_UPDATED) {
-                const updateTime = new Date(database.LAST_UPDATED);
-                timestampDiv.innerText = `Last updated: ${updateTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+                const checkTime = new Date(database.LAST_UPDATED);
+                timeText += `<strong>Last Checked:</strong> ${checkTime.toLocaleString([], {month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'})}`;
+            }
+
+            if (timeText) {
+                timestampDiv.innerHTML = timeText;
                 timestampDiv.style.display = 'block';
+                // Optional: Add a little line height so they aren't squished
+                timestampDiv.style.lineHeight = '1.6'; 
             }
 
         } catch (error) {
             loader.style.display = 'none';
-            resultsDiv.innerHTML = '<div class="error-msg">An error occurred while fetching data.</div>';
+            resultsDiv.innerHTML = '<div class="error-msg">An error occurred while loading data.</div>';
             console.error(error);
         }
     }
 
-    // 2. Fetch the static JSON file generated by GitHub Actions
+    // Fetch the JSON file generated by the backend
     async function fetchStaticData() {
         try {
-            // Add "?t=" with the current time so the phone doesn't load a stale, cached version
+            // Append current timestamp to bypass browser caching
             const response = await fetch(`./data.json?t=${new Date().getTime()}`);
             if (!response.ok) throw new Error("Network response was not ok");
             return await response.json();
@@ -234,14 +283,46 @@
         }
     }
 
-    // Add 'Enter' key support for the input field
+    // Scan the database and generate clickable tags for airports that have data
+    async function loadAvailableAirports() {
+        const database = await fetchStaticData();
+        const container = document.getElementById('availableAirports');
+        
+        if (!database) return;
+
+        // Get all keys, filter out the timestamp, and sort them alphabetically
+        const codes = Object.keys(database)
+            .filter(key => key !== 'LAST_UPDATED')
+            .sort(); 
+        
+        codes.forEach(code => {
+            const entry = database[code];
+            
+            // Only create a button if this specific airport currently has data
+            if (entry && entry.data && entry.data.length > 0) {
+                const tag = document.createElement('span');
+                tag.className = 'airport-tag';
+                tag.innerText = code;
+                
+                // Make the tag clickable so it auto-fills and searches
+                tag.onclick = () => {
+                    document.getElementById('airportCode').value = code;
+                    lookupWaitTimes();
+                };
+                
+                container.appendChild(tag);
+            }
+        });
+    }
+
+    // Listen for the Enter key in the input field
     document.getElementById('airportCode').addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             lookupWaitTimes();
         }
     });
 
-    // 3. Register the Service Worker for offline PWA support
+    // Register the Service Worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js')
@@ -254,12 +335,13 @@
         });
     }
 
-    // 4. Auto-load the last searched airport when the app opens
+    // Load the tags and the previously searched airport on application start
     window.addEventListener('DOMContentLoaded', () => {
+        loadAvailableAirports();
+        
         const savedCode = localStorage.getItem('savedAirportCode');
         if (savedCode) {
             document.getElementById('airportCode').value = savedCode;
-            // Add a tiny delay so the UI can render before the fetch begins
             setTimeout(lookupWaitTimes, 100); 
         }
     });

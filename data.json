@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
     "LAST_UPDATED": "2026-03-24T00:59:13.161876+00:00",
     "PHX": [
         {
@@ -140,4 +141,190 @@
     "AUS": [],
     "MSY": [],
     "OSL": []
+=======
+    "LAST_UPDATED": "2026-03-24T02:52:16.070150+00:00",
+    "PHX": {
+        "last_updated": "2026-03-24T02:52:16.070150+00:00",
+        "data": [
+            {
+                "name": "T3 General",
+                "waitMinutes": 10
+            },
+            {
+                "name": "T4 Checkpoint A General",
+                "waitMinutes": 10
+            },
+            {
+                "name": "T4 Checkpoint B General",
+                "waitMinutes": 7
+            },
+            {
+                "name": "T4 Checkpoint C General",
+                "waitMinutes": 9
+            },
+            {
+                "name": "T4 Checkpoint D General",
+                "waitMinutes": 7
+            }
+        ]
+    },
+    "LAX": {
+        "last_updated": "2026-03-24T02:52:16.070150+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "3"
+            },
+            {
+                "name": "Terminal Tom Bradley General",
+                "waitMinutes": "4"
+            },
+            {
+                "name": "Terminal Tom Bradley TSA PreCheck",
+                "waitMinutes": "2"
+            }
+        ]
+    },
+    "IAD": {
+        "last_updated": "2026-03-24T00:51:24.069839+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "50"
+            }
+        ]
+    },
+    "IAH": {
+        "last_updated": "2026-03-24T02:52:16.070150+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "221"
+            },
+            {
+                "name": "Terminal A",
+                "waitMinutes": "199"
+            },
+            {
+                "name": "Terminal E",
+                "waitMinutes": "243"
+            }
+        ]
+    },
+    "LGA": {
+        "last_updated": "2026-03-24T01:39:59.236379+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "25"
+            }
+        ]
+    },
+    "ATL": {
+        "last_updated": "2026-03-24T02:36:11.328983+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "9"
+            }
+        ]
+    },
+    "MIA": {
+        "last_updated": "2026-03-24T02:52:16.070150+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "4"
+            }
+        ]
+    },
+    "DEN": {
+        "last_updated": "2026-03-24T02:52:16.070150+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "1"
+            },
+            {
+                "name": "Terminal East Security",
+                "waitMinutes": "1"
+            },
+            {
+                "name": "Terminal West Security",
+                "waitMinutes": "0"
+            }
+        ]
+    },
+    "ORD": {
+        "last_updated": "2026-03-24T02:52:16.070150+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "2"
+            },
+            {
+                "name": "Terminal 2 Checkpoint 5 General",
+                "waitMinutes": "2"
+            },
+            {
+                "name": "Terminal 2 Checkpoint 5 TSA Pre",
+                "waitMinutes": "0"
+            },
+            {
+                "name": "Terminal 3 Checkpoint 6 General",
+                "waitMinutes": "0"
+            },
+            {
+                "name": "Terminal 3 Checkpoint 7 General",
+                "waitMinutes": "2"
+            },
+            {
+                "name": "Terminal 3 Checkpoint 7 TSA Pre",
+                "waitMinutes": "2"
+            },
+            {
+                "name": "Terminal 3 Checkpoint 8 General",
+                "waitMinutes": "0"
+            },
+            {
+                "name": "Terminal 3 Checkpoint 8 TSA Pre",
+                "waitMinutes": "0"
+            },
+            {
+                "name": "Terminal 3 Checkpoint 9 General",
+                "waitMinutes": "0"
+            }
+        ]
+    },
+    "CLT": {
+        "last_updated": "2026-03-24T02:36:11.328983+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "17"
+            }
+        ]
+    },
+    "BOS": {
+        "last_updated": "2026-03-24T02:52:16.070150+00:00",
+        "data": []
+    },
+    "AUS": {
+        "last_updated": "2026-03-24T02:52:16.070150+00:00",
+        "data": []
+    },
+    "MSY": {
+        "last_updated": "2026-03-24T02:36:11.328983+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "83"
+            }
+        ]
+    },
+    "OSL": {
+        "last_updated": "2026-03-24T02:52:16.070150+00:00",
+        "data": []
+    }
+>>>>>>> Stashed changes
 }
