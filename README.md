@@ -8,7 +8,7 @@ Instead of relying on a traditional paid server or database, this project uses a
 
 ## ✨ Features
 
-* **Live Data:** Security wait times updated automatically every 10 minutes.
+* **Live Data:** Security wait times updated automatically. Time varies due to free Github hosting, but is approximately updated hourly.
 * **Progressive Web App:** Installable on iOS and Android home screens.
 * **Local Storage:** Automatically remembers your last searched airport.
 * **Serverless Backend:** Powered entirely by GitHub Actions and GitHub Pages.
@@ -29,7 +29,6 @@ The scraper currently aggregates data for the following airports:
 * **MIA** - Miami International
 * **MSY** - Louis Armstrong
 * **ORD** - Chicago O'Hare
-* **OSL** - Oslo Gardermoen
 * **PHX** - Phoenix Sky Harbor
 
 ## 🏗️ Architecture: How it Works

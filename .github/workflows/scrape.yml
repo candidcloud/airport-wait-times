@@ -3,8 +3,8 @@ name: Update Wait Times
 # Tells GitHub when to run the script
 on:
   schedule:
-    # Runs every 10 minutes automatically
-    - cron: '*/10 * * * *'
+    # Runs every XX minutes automatically
+    - cron: '*/30 * * * *'
   # Allows you to manually click a "Run" button in the GitHub UI
   workflow_dispatch: 
 
@@ -45,10 +45,13 @@ jobs:
             exit 0
           fi
 
-          # Check the exact name of the author of the very last commit
-          LAST_AUTHOR=$(git log -1 --pretty=format:'%an')
+          # Get the exact commit message of the last commit
+          LAST_MESSAGE=$(git log -1 --pretty=format:'%s')
+          
+          echo "Last commit message was: '$LAST_MESSAGE'"
 
-          if [ "$LAST_AUTHOR" = "github-actions[bot]" ]; then
+          # Check if the last commit was our automated message
+          if [ "$LAST_MESSAGE" = "Auto-update live wait times" ]; then
             echo "Bot made the last commit. Amending..."
             git commit --amend -m "Auto-update live wait times"
             git push --force
