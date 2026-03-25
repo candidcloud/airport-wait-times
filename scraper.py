@@ -149,6 +149,8 @@ class ScraperManager:
             QsensorScraper("AUS", "austin-bergstrom-international-airport"),
             QsensorScraper("MSY", "louis-armstrong-new-orleans-international-airport"),
             QsensorScraper("OSL", "oslo-gardermoen-airport", "-security-wait-times"),
+            QsensorScraper("BWI", "baltimore-washington-international-airport"),
+            QsensorScraper("RSW", "southwest-florida-international-airport"),
         ]
 
     def run_all(self):

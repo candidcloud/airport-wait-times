@@ -34,7 +34,7 @@
             },
             {
                 "name": "Terminal Tom Bradley General",
-                "waitMinutes": "4"
+                "waitMinutes": "6"
             },
             {
                 "name": "Terminal Tom Bradley TSA PreCheck",
@@ -73,7 +73,7 @@
         "data": [
             {
                 "name": "All Terminals",
-                "waitMinutes": "4"
+                "waitMinutes": "7"
             },
             {
                 "name": "Terminal Checkpoint 3 Priority",
@@ -90,7 +90,7 @@
         "data": [
             {
                 "name": "All Terminals",
-                "waitMinutes": "1"
+                "waitMinutes": "2"
             },
             {
                 "name": "Terminal East Security",
@@ -107,7 +107,7 @@
         "data": [
             {
                 "name": "All Terminals",
-                "waitMinutes": "2"
+                "waitMinutes": "1"
             },
             {
                 "name": "Terminal 2 Checkpoint 5 General",
@@ -123,19 +123,19 @@
             },
             {
                 "name": "Terminal 3 Checkpoint 7 General",
-                "waitMinutes": "3"
+                "waitMinutes": "2"
             },
             {
                 "name": "Terminal 3 Checkpoint 7 TSA Pre",
-                "waitMinutes": "3"
+                "waitMinutes": "2"
             },
             {
                 "name": "Terminal 3 Checkpoint 8 General",
-                "waitMinutes": "2"
+                "waitMinutes": "0"
             },
             {
                 "name": "Terminal 3 Checkpoint 8 TSA Pre",
-                "waitMinutes": "2"
+                "waitMinutes": "0"
             },
             {
                 "name": "Terminal 3 Checkpoint 9 General",
@@ -182,5 +182,43 @@
     "OSL": {
         "last_updated": "2026-03-25T00:47:50.263133+00:00",
         "data": []
+    },
+    "BWI": {
+        "last_updated": "2026-03-25T01:03:41.035323+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "2"
+            },
+            {
+                "name": "Terminal Checkpoint BC General",
+                "waitMinutes": "2"
+            },
+            {
+                "name": "Terminal Checkpoint BC Priority",
+                "waitMinutes": "2"
+            },
+            {
+                "name": "Terminal Checkpoint DE General",
+                "waitMinutes": "2"
+            },
+            {
+                "name": "Terminal Checkpoint DE PreCheck",
+                "waitMinutes": "2"
+            },
+            {
+                "name": "Terminal Checkpoint DE Priority",
+                "waitMinutes": "2"
+            }
+        ]
+    },
+    "RSW": {
+        "last_updated": "2026-03-25T01:03:41.035323+00:00",
+        "data": [
+            {
+                "name": "All Terminals",
+                "waitMinutes": "2"
+            }
+        ]
     }
 }

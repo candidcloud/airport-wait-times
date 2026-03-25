@@ -20,6 +20,7 @@ The scraper currently aggregates data for the following airports:
 * **ATL** - Hartsfield-Jackson Atlanta
 * **AUS** - Austin-Bergstrom
 * **BOS** - Boston Logan
+* **BWI** - Baltimore Washington International
 * **CLT** - Charlotte Douglas
 * **DEN** - Denver International
 * **IAD** - Washington Dulles
@@ -30,6 +31,7 @@ The scraper currently aggregates data for the following airports:
 * **MSY** - Louis Armstrong
 * **ORD** - Chicago O'Hare
 * **PHX** - Phoenix Sky Harbor
+* **RSW** - Southwest Florida International
 
 ## 🏗️ Architecture: How it Works
 
